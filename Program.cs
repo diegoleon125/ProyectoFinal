@@ -17,16 +17,20 @@ namespace ProyectoFinal
                 switch (opcion)
                 {
                     //Menus
-                    case 0: opcion = Pantallas.MenuPrincipal(); break;
-                    /* case 1: opcion = Pantallas.MenuGestionarProductos(); break;
-                    case 2: opcion = Pantallas.MenuGestionarAlmacenes(); break;
-                    case 3: opcion = Pantallas.MenuAgregarExtraerProductos(); break; */
+                    case 0: opcion = Pantallas.MenuPrincipal();
+                        break;
+                    case 1: opcion = Pantallas.MenuGestionarProductos();
+                        break;
+                    case 2: opcion = Pantallas.MenuGestionarAlmacenes(); 
+                        break;
+                    case 3: opcion = Pantallas.MenuAgregarYExtraerProductos(); 
+                        break; 
 
-                    //Menu-Gestionar Productos
+                        //Menu-Gestionar Productos
 
-                    //Menu-Gestionar Almacenes
+                        //Menu-Gestionar Almacenes
 
-                    //Menu-Agregar y Extraer Productos
+                        //Menu-Agregar y Extraer Productos
 
                 }
             }
