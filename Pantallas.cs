@@ -8,7 +8,13 @@ namespace ProyectoFinal
 {
     public class Pantallas
     {
+        public static string[,] producto = new string[100, 300];
         public static int contador1 = 0;
+        public static float[,] precio = new float[100, 300];
+        public static int[,] cantidad = new int[100, 300];
+        public static string[] almacen = new string[100];
+        public static int contador2 = 0;
+
 
         //Menus
         public static int MenuPrincipal()
@@ -75,9 +81,42 @@ namespace ProyectoFinal
                
         }
         //Menu-Gestionar Productos
+        public static int PantallaAgregarProducto()
+        {
+            string texto = "===== Pantalla para Agregar Producto =====\n" +
+                           "--------------------------------------------------\n" +
+                           "Ingrese el nombre del producto: ";
+            Console.Write(texto);
+            producto[0, contador1] = Console.ReadLine();
+            string texto1 = "Ingrese el precio del producto: ";
+            Console.Write(texto1);
+            precio[0, contador1] = float.Parse(Console.ReadLine());
+            string texto2 = "Ingrese la cantidad de producto: ";
+            Console.Write(texto2);
+            cantidad[0, contador1] = int.Parse(Console.ReadLine());
+            string texto3 = "--------------------------------------------------\n" +
+                            "Producto agregado exitosamente.";
+            Console.Write(texto3);
+            contador1++;
+            Console.ReadKey();
+            return 1;
+        }
 
         //Menu-Gestionar Almacenes
-
+        public static int AgregarAlmacen()
+        {
+            string texto = "===== Pantalla para Agregar Almacén =====\n"+
+                           "--------------------------------------------------\n"+
+                           "Ingrese el nombre del nuevo almacén: ";
+            Console.Write(texto);
+            almacen[contador2]=Console.ReadLine();
+            string texto1 = "--------------------------------------------------\n"+
+                            "Almacén agregado exitosamente.";
+            Console.Write(texto1);
+            contador2++;
+            Console.ReadKey();
+            return 2;
+        }
         //Menu-Agregar y Extraer Productos
 
     }

@@ -27,6 +27,43 @@ namespace ProyectoFinal
             }
             return opcion;
         }
-
+        public static int GetEntero(string texto, string prefijo)
+        {
+            bool respuesta = false;
+            int opcion = 0;
+            while (!respuesta)
+            {
+                Console.Write(texto);
+                string enterotexto = Console.ReadLine();
+                respuesta = int.TryParse(enterotexto, out opcion);
+                if (opcion < 1) respuesta = false;
+                if (!respuesta)
+                {
+                    Console.Clear();
+                    Console.Write(prefijo);
+                    Console.WriteLine("Ingrese una opción valida");
+                }
+            }
+            return opcion;
+        }
+        public static decimal GetOpcion(string texto, string prefijo)
+        {
+            bool respuesta = false;
+            decimal opcion = 0;
+            while (!respuesta)
+            {
+                Console.Write(texto);
+                string enterotexto = Console.ReadLine();
+                respuesta = decimal.TryParse(enterotexto, out opcion);
+                if (opcion < 1) respuesta = false;
+                if (!respuesta)
+                {
+                    Console.Clear();
+                    Console.Write(prefijo);
+                    Console.WriteLine("Ingrese una opción valida");
+                }
+            }
+            return opcion;
+        }
     }
 }
