@@ -24,14 +24,23 @@ namespace ProyectoFinal
                     case 2: opcion = Pantallas.MenuGestionarAlmacenes(); 
                         break;
                     case 3: opcion = Pantallas.MenuAgregarYExtraerProductos(); 
-                        break; 
+                        break;
 
-                        //Menu-Gestionar Productos
+                    //Menu-Gestionar Productos
+                    /*case 4: opcion = Pantallas.AgregarProducto(); break;
+                    case 5: opcion = Pantallas.EliminarProducto(); break;
+                    case 6: opcion = Pantallas.ModificarProducto(); break;
+                    case 7: opcion = Pantallas.MostrarInventario(); break;*/
 
-                        //Menu-Gestionar Almacenes
+                    //Menu-Gestionar Almacenes
+                    /*case 8: opcion = Pantallas.AgregarAlmacen(); break;
+                    case 9: opcion = Pantallas.EliminarAlmacen(); break;
+                    case 10: opcion = Pantallas.MostrarAlmacen(); break; */
 
-                        //Menu-Agregar y Extraer Productos
-
+                    //Menu-Agregar y Extraer Productos
+                    /*case 11: opcion = Pantallas.IngresarProductoAlmacen(); break;
+                    case 12: opcion = Pantallas.ExtraerProductoAlmacen(); break;
+                    case 13: opcion = Pantallas.VerStockActual(); break; */
                 }
             }
 

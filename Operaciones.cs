@@ -25,7 +25,6 @@ namespace ProyectoFinal
                     Console.WriteLine("Ingrese una opción valida");
                 }
             }
-
             return opcion;
         }
 
