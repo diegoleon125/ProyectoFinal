@@ -30,7 +30,9 @@ namespace ProyectoFinal
                     case 4:
                         opcion = Pantallas.AgregarProducto();
                         break;
-                    //case 5: opcion = Pantallas.EliminarProducto(); break;
+                    case 5:
+                            opcion = Pantallas.EliminarProducto();
+                        break;
                     case 6: opcion = Pantallas.ModificarProducto();
                         break;
                     //case 7: opcion = Pantallas.MostrarInventario(); break;

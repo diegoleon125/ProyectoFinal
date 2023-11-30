@@ -86,7 +86,7 @@ namespace ProyectoFinal
         public static int AgregarProducto()
         {
             string texto = "===== Pantalla para Agregar Producto =====\n" +
-                           "--------------------------------------------------";
+                           "--------------------------------------------------\n";
             Console.Write(texto);
             producto[0, pdto_contador[0]] = Operaciones.GetString("Ingrese el nombre del producto: ");
             precio[0, pdto_contador[0]] = Operaciones.GetFloat("Ingrese el precio del producto: ", texto);
@@ -94,6 +94,40 @@ namespace ProyectoFinal
             Operaciones.GetKey("Producto agregado exitosamente.");
             pdto_contador[0]++;
             return 1;
+        }
+        //Menu-Eliminar Productos
+        public static int EliminarProducto()
+        {
+            string texto = "===== Pantalla para Eliminar Producto =====\n" +
+                           "--------------------------------------------------\n";
+            Console.Write(texto);
+            string productoAEliminar = Operaciones.GetString("Ingrese el nombre del producto a eliminar:");
+            int posicion = -1;
+            for (int i = 0; i < pdto_contador[0]; i++)
+            {
+                if (producto[0, i] == productoAEliminar)
+                {
+                    posicion = i;
+                    break;
+                }
+            }
+            if (posicion != -1)
+            {    
+                for (int i = posicion;i  < pdto_contador[0] -1;i++)
+                {
+                    producto[0,i] = producto[0,i+1];
+                    precio[0,i] = precio[0,i+1];
+                    cantidad[0, i] = cantidad[0, i + 1];
+                }
+            pdto_contador[0]--;
+            Console.WriteLine("Producto eliminado exitosamente.");
+            } 
+            else
+            {
+                Console.WriteLine("Error producto no encontrado.");
+            }    
+            Console.ReadKey();
+                return 1;
         }
 
         public static int ModificarProducto()
