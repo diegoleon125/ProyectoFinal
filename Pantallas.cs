@@ -14,7 +14,7 @@ namespace ProyectoFinal
         public static float[,] precio = new float[100, 300];
         public static int[,] cantidad = new int[100, 300];
         public static string[] almacen = new string[100];
-        public static int alm_contador = 0;
+        public static int alm_contador = 1;
         public static int[] pdto_contador = new int[100];
 
 
@@ -160,6 +160,7 @@ namespace ProyectoFinal
         //Menu-Gestionar Almacenes
         public static int AgregarAlmacen()
         {
+            almacen[0] = "Tiendita";
             string texto = "===== Pantalla para Agregar Almacén =====\n"+
                            "--------------------------------------------------\n"+
                            "Ingrese el nombre del nuevo almacén: ";
@@ -211,5 +212,30 @@ namespace ProyectoFinal
             Operaciones.GetKey("Producto ingresado en el almacén exitosamente.");
             return 3;
         }
+
+        public static int VerStockActual()
+        {
+            string texto = "===== Pantalla para Ver Stock Actual =====\n" +
+                           "--------------------------------------------------\n" +
+                           "Stock Actual en Todos los Almacenes:\n ";
+            int contador = 1;
+
+            for (int i = 0; i < alm_contador; i++)
+            {
+                for (int j = 0; j < pdto_contador[i]; j++)
+                {
+                    texto += "Producto " + contador + ": " + producto[i, j] + " - ";
+                    texto += "Almacén: " + almacen[i] + " - ";
+                    texto += "Cantidad: " + cantidad[i, j] + "\n";
+                    contador++;
+                }
+            }
+            Console.Write(texto);
+            Console.ReadKey();
+
+
+            return 3;
+        }
+
     }
 }

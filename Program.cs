@@ -48,7 +48,8 @@ namespace ProyectoFinal
                     case 11: opcion = Pantallas.IngresarProductoAlmacen();
                         break;
                     //case 12: opcion = Pantallas.ExtraerProductoAlmacen(); break;
-                    //case 13: opcion = Pantallas.VerStockActual(); break;
+                    case 13: opcion = Pantallas.VerStockActual(); 
+                        break;
                 }
             }
 
