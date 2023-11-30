@@ -25,12 +25,13 @@ namespace ProyectoFinal
                         break;
                     case 3: opcion = Pantallas.MenuAgregarYExtraerProductos(); 
                         break;
-                    case 4: opcion=Pantallas.PantallaAgregarProducto();break;
+                    case 4: opcion=Pantallas.PantallaAgregarProducto();
+                        break;
                     //Menu-Gestionar Productos
+                    case 6: opcion = Pantallas.ModificarProducto();
+                        break;
                     /*case 5: opcion = Pantallas.EliminarProducto(); break;
-                    case 6: opcion = Pantallas.ModificarProducto(); break;
                     case 7: opcion = Pantallas.MostrarInventario(); break;*/
-
                     //Menu-Gestionar Almacenes
                     case 8: opcion = Pantallas.AgregarAlmacen(); break;
                     /*case 9: opcion = Pantallas.EliminarAlmacen(); break;

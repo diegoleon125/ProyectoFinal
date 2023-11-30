@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ProyectoFinal
 {
@@ -100,6 +101,33 @@ namespace ProyectoFinal
             contador1++;
             Console.ReadKey();
             return 1;
+        }
+
+        // Menu-modificar productos
+        public static int ModificarProducto()
+        {
+            string texto = "==== Pantalla para Modificar Prodcto ==== \n" +
+                           "--------------------------------------------------\n" +
+                           "Ingrese el nombre del producto a modificar: ";
+            Console.Write(texto);
+            string modificar = Console.ReadLine();
+            int posicion = 0;
+            for (int i = 0; i < contador1; i++)
+            {
+                if (producto[0, i] == modificar) posicion = i;
+            }
+            string texto1 = "Ingrese el nuevo precio: ";
+            Console.Write(texto1);
+            precio[0, posicion] = float.Parse(Console.ReadLine());
+            string texto2 = "Ingrese la nueva cantidad: ";
+            Console.Write(texto2);
+            cantidad[0, posicion] = int.Parse(Console.ReadLine());
+            string texto3 = "--------------------------------------------------\n" +
+                            "Comfirmacion : producto modificado exitosamente.";
+            Console.Write(texto3);
+            Console.ReadKey();
+            return 1;
+
         }
 
         //Menu-Gestionar Almacenes
