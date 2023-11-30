@@ -10,11 +10,11 @@ namespace ProyectoFinal
     public class Pantallas
     {
         public static string[,] producto = new string[100, 300];
-        public static int contador1 = 0;
         public static float[,] precio = new float[100, 300];
         public static int[,] cantidad = new int[100, 300];
         public static string[] almacen = new string[100];
-        public static int contador2 = 0;
+        public static int alm_contador = 0;
+        public static int[] pdto_contador = new int[100];
 
 
         //Menus
@@ -47,7 +47,7 @@ namespace ProyectoFinal
             Console.Write(texto);
             int opcion = Operaciones.GetOpcion("Seleccione una opcion: ", texto,5);
             if (opcion == 5) return 0;
-            return opcion+3;
+            return opcion + 3;
         }
         public static int MenuGestionarAlmacenes()
         {
@@ -63,7 +63,7 @@ namespace ProyectoFinal
             int opcion = Operaciones.GetOpcion("Seleccione una opcion: ", texto, 4);
             if (opcion == 4) return 0;
             
-            return opcion+7;
+            return opcion + 7;
         }
         public static int MenuAgregarYExtraerProductos()
         {
@@ -78,32 +78,24 @@ namespace ProyectoFinal
             Console.Write(texto);
             int opcion = Operaciones.GetOpcion("Seleccione una opcion: ", texto, 4);
             if (opcion == 4) return 0;
-            return opcion+10;
+            return opcion + 10;
                
         }
+
         //Menu-Gestionar Productos
-        public static int PantallaAgregarProducto()
+        public static int AgregarProducto()
         {
             string texto = "===== Pantalla para Agregar Producto =====\n" +
-                           "--------------------------------------------------\n" +
-                           "Ingrese el nombre del producto: ";
+                           "--------------------------------------------------";
             Console.Write(texto);
-            producto[0, contador1] = Console.ReadLine();
-            string texto1 = "Ingrese el precio del producto: ";
-            Console.Write(texto1);
-            precio[0, contador1] = float.Parse(Console.ReadLine());
-            string texto2 = "Ingrese la cantidad de producto: ";
-            Console.Write(texto2);
-            cantidad[0, contador1] = int.Parse(Console.ReadLine());
-            string texto3 = "--------------------------------------------------\n" +
-                            "Producto agregado exitosamente.";
-            Console.Write(texto3);
-            contador1++;
-            Console.ReadKey();
+            producto[0, pdto_contador[0]] = Operaciones.GetString("Ingrese el nombre del producto: ");
+            precio[0, pdto_contador[0]] = Operaciones.GetFloat("Ingrese el precio del producto: ", texto);
+            cantidad[0, pdto_contador[0]] = Operaciones.GetEntero("Ingrese la cantidad de producto: ", texto);
+            Operaciones.GetKey("Producto agregado exitosamente.");
+            pdto_contador[0]++;
             return 1;
         }
 
-        // Menu-modificar productos
         public static int ModificarProducto()
         {
             string texto = "==== Pantalla para Modificar Prodcto ==== \n" +
@@ -112,7 +104,7 @@ namespace ProyectoFinal
             Console.Write(texto);
             string modificar = Console.ReadLine();
             int posicion = 0;
-            for (int i = 0; i < contador1; i++)
+            for (int i = 0; i < pdto_contador[0]; i++)
             {
                 if (producto[0, i] == modificar) posicion = i;
             }
@@ -137,15 +129,35 @@ namespace ProyectoFinal
                            "--------------------------------------------------\n"+
                            "Ingrese el nombre del nuevo almacén: ";
             Console.Write(texto);
-            almacen[contador2]=Console.ReadLine();
-            string texto1 = "--------------------------------------------------\n"+
-                            "Almacén agregado exitosamente.";
-            Console.Write(texto1);
-            contador2++;
-            Console.ReadKey();
+            almacen[alm_contador]=Console.ReadLine();
+            Operaciones.GetKey("Almacén agregado exitosamente.");
+            alm_contador++;
             return 2;
         }
-        //Menu-Agregar y Extraer Productos
 
+        //Menu-Agregar y Extraer Productos
+        public static int IngresarProductoAlmacen()
+        {
+            string texto = Operaciones.SetTitulo("Pantalla para Ingresar Producto en Almacén");
+            for (int i = 0; i < alm_contador; i++)
+            {
+                texto += i + ". " + almacen[i] + "\n";
+            }
+            Console.Write(texto);
+            int opcion1 = Operaciones.GetOpcion("Seleccione el almacén: ", texto, alm_contador);
+            string texto1 = "";
+            for (int i = 0; i < pdto_contador[0]; i++)
+            {
+                texto1 += i + ". " + producto[0, i] + "\n";
+            }
+            Console.Write(texto1);
+            int opcion2 = Operaciones.GetOpcion("Seleccione el producto a ingresar: ", texto + texto1, pdto_contador[0]);
+            producto[opcion1, opcion2] = producto[0, opcion2];
+            int opcion3 = Operaciones.GetOpcion("Ingrese la cantidad a ingresar: ", texto + texto1, cantidad[0, opcion2]);
+            cantidad[opcion1, opcion2] += opcion3;
+            cantidad[0, opcion2] -= opcion3;
+            Operaciones.GetKey("Producto ingresado en el almacén exitosamente.");
+            return 3;
+        }
     }
 }

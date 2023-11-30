@@ -27,6 +27,11 @@ namespace ProyectoFinal
             }
             return opcion;
         }
+        public static void GetKey(string texto)
+        {
+            Console.Write("--------------------------------------------------\n" + texto);
+            Console.ReadKey();
+        }
         public static int GetEntero(string texto, string prefijo)
         {
             bool respuesta = false;
@@ -46,15 +51,15 @@ namespace ProyectoFinal
             }
             return opcion;
         }
-        public static decimal GetOpcion(string texto, string prefijo)
+        public static float GetFloat(string texto, string prefijo)
         {
             bool respuesta = false;
-            decimal opcion = 0;
+            float opcion = 0;
             while (!respuesta)
             {
                 Console.Write(texto);
                 string enterotexto = Console.ReadLine();
-                respuesta = decimal.TryParse(enterotexto, out opcion);
+                respuesta = float.TryParse(enterotexto, out opcion);
                 if (opcion < 1) respuesta = false;
                 if (!respuesta)
                 {
@@ -65,5 +70,16 @@ namespace ProyectoFinal
             }
             return opcion;
         }
+        public static string GetString(string texto)
+        {
+            Console.Write(texto);
+            return Console.ReadLine();
+        }
+        public static string SetTitulo(string texto)
+        {
+            return "===== " + texto + " =====\n" +
+                "--------------------------------------------------\n";
+        }
+
     }
 }
