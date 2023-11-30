@@ -43,7 +43,8 @@ namespace ProyectoFinal
                         break;
                     case 9: opcion = Pantallas.EliminarAlmacen();
                         break;
-                    //case 10: opcion = Pantallas.MostrarAlmacen(); break;
+                    case 10: opcion = Pantallas.MostrarAlmacen();
+                        break;
 
                     //Menu-Agregar y Extraer Productos
                     case 11: opcion = Pantallas.IngresarProductoAlmacen();

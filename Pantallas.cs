@@ -150,7 +150,7 @@ namespace ProyectoFinal
             Console.Write(texto2);
             cantidad[0, posicion] = int.Parse(Console.ReadLine());
             string texto3 = "--------------------------------------------------\n" +
-                            "Comfirmacion : producto modificado exitosamente.";
+                            "Producto modificado exitosamente.";
             Console.Write(texto3);
             Console.ReadKey();
             return 1;
@@ -202,12 +202,26 @@ namespace ProyectoFinal
             Operaciones.GetKey("Almacén eliminado exitosamente.");
             return 2;
         }
+        public static int MostrarAlmacen()
+        {
+            string texto = "===== Pantalla para Mostrar Almacenes =====\n" +
+                "--------------------------------------------------\n" +
+                "Lista de Almacenes:\n";
+            for (int i = 1; i < alm_contador; i++)
+            {
+                texto += "Almacén "+(i)+ ": " + almacen[i]+"\n";
+            }
+            Console.Write(texto);
+            Console.ReadKey();
+            return 2;
+
+        }
 
         //Menu-Agregar y Extraer Productos
         public static int IngresarProductoAlmacen()
         {
             string texto = Operaciones.SetTitulo("Pantalla para Ingresar Producto en Almacén");
-            for (int i = 0; i < alm_contador; i++)
+            for (int i = 1; i < alm_contador; i++)
             {
                 texto += i + ". " + almacen[i] + "\n";
             }
@@ -235,7 +249,7 @@ namespace ProyectoFinal
                            "Stock Actual en Todos los Almacenes:\n ";
             int contador = 1;
 
-            for (int i = 0; i < alm_contador; i++)
+            for (int i = 1; i < alm_contador; i++)
             {
                 for (int j = 0; j < pdto_contador[i]; j++)
                 {
