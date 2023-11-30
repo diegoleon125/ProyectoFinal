@@ -35,7 +35,8 @@ namespace ProyectoFinal
                         break;
                     case 6: opcion = Pantallas.ModificarProducto();
                         break;
-                    //case 7: opcion = Pantallas.MostrarInventario(); break;
+                    case 7: opcion = Pantallas.MostrarInventario();
+                        break;
 
                     //Menu-Gestionar Almacenes
                     case 8: opcion = Pantallas.AgregarAlmacen();

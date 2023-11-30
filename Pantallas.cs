@@ -156,6 +156,21 @@ namespace ProyectoFinal
             return 1;
 
         }
+        public static int MostrarInventario()
+        {
+            string texto = "===== Pantalla para Mostrar Inventario =====\n" +
+                "--------------------------------------------------\n" +
+                "Inventario Actual:\n";
+            for (int i = 0; i < pdto_contador[0]; i++)
+            {
+                texto += "Producto " + (i+1) + ": " + producto[0,i] + " - ";
+                texto += "Precio: $ " + precio[0,i] + " - ";
+                texto += "Cantidad: " + cantidad[0,i] + "\n";
+            }
+            Console.Write(texto);
+            Operaciones.GetKey("...");
+            return 1;   
+        }
 
         //Menu-Gestionar Almacenes
         public static int AgregarAlmacen()
