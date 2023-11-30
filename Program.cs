@@ -49,8 +49,12 @@ namespace ProyectoFinal
                     //Menu-Agregar y Extraer Productos
                     case 11: opcion = Pantallas.IngresarProductoAlmacen();
                         break;
-                    //case 12: opcion = Pantallas.ExtraerProductoAlmacen(); break;
-                    case 13: opcion = Pantallas.VerStockActual(); 
+                    
+                    case 12: 
+                        opcion = Pantallas.ExtraerProducto(); 
+                        break;
+                    case 13: 
+                        opcion = Pantallas.VerStockActual(); 
                         break;
                 }
             }

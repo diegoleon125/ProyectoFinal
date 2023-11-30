@@ -216,7 +216,6 @@ namespace ProyectoFinal
             return 2;
 
         }
-
         //Menu-Agregar y Extraer Productos
         public static int IngresarProductoAlmacen()
         {
@@ -240,6 +239,39 @@ namespace ProyectoFinal
             cantidad[0, opcion2] -= opcion3;
             Operaciones.GetKey("Producto ingresado en el almacén exitosamente.");
             return 3;
+        }
+        //Extraer Producto
+        public static int ExtraerProducto()
+        {
+            string texto = "===== Pantalla para Extraer Producto de Almacén =====\n" +
+               "--------------------------------------------------\n";
+            Console.Write(texto);
+
+            for (int i = 1; i < alm_contador; i++)
+            {
+                texto += i + ". " + almacen[i] + "\n";
+            }
+            Console.Write(texto);
+            int opcionAlmacen = Operaciones.GetOpcion("Seleccione el almacén: ", texto, alm_contador);
+            string TextoProducto = "";
+            for (int i = 0; i < pdto_contador[opcionAlmacen]; i++)
+            {
+                TextoProducto += i + ". " + producto[opcionAlmacen, i] + "\n";
+            }
+            Console.Write(TextoProducto);
+            int opcionProducto = Operaciones.GetOpcion("Seleccione el producto a extraer: ", texto + TextoProducto, pdto_contador[opcionAlmacen]);
+            int cantidadAExtraer = Operaciones.GetEntero("Ingrese la cantidad a extraer: ", texto + TextoProducto);
+            if (cantidad[opcionAlmacen, opcionProducto] >= cantidadAExtraer)
+            {
+                cantidad[opcionAlmacen, opcionProducto] -= cantidadAExtraer;
+                Console.WriteLine("Confirmación: Producto extraído del almacén exitosamente.");
+            }
+            else
+            {
+                Console.WriteLine("Error: No hay suficiente cantidad en el almacén.");
+            }
+            Console.ReadKey();
+            return 2; 
         }
 
         public static int VerStockActual()
