@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
@@ -129,9 +130,26 @@ namespace ProyectoFinal
                            "--------------------------------------------------\n"+
                            "Ingrese el nombre del nuevo almacén: ";
             Console.Write(texto);
-            almacen[alm_contador]=Console.ReadLine();
+            almacen[alm_contador]= Console.ReadLine();
             Operaciones.GetKey("Almacén agregado exitosamente.");
             alm_contador++;
+            return 2;
+        }
+        public static int EliminarAlmacen()
+        {
+            string texto = "===== Pantalla para Eliminar Almacén =====\n" +
+                           "--------------------------------------------------\n" +
+                           "Ingrese el nombre del almacén a eliminar: ";
+            Console.Write(texto);
+            string nombre = Console.ReadLine();
+            bool eliminar = false;
+            for (int i = 0; i < alm_contador; i++)
+            {
+                if (almacen[i] == nombre) eliminar = true;
+                if (eliminar) almacen[i] = almacen[i + 1];
+            }
+            if (eliminar) alm_contador--;
+            Operaciones.GetKey("Almacén eliminado exitosamente.");
             return 2;
         }
 

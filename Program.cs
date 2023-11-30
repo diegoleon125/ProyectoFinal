@@ -38,7 +38,8 @@ namespace ProyectoFinal
                     //Menu-Gestionar Almacenes
                     case 8: opcion = Pantallas.AgregarAlmacen();
                         break;
-                    //case 9: opcion = Pantallas.EliminarAlmacen(); break;
+                    case 9: opcion = Pantallas.EliminarAlmacen();
+                        break;
                     //case 10: opcion = Pantallas.MostrarAlmacen(); break;
 
                     //Menu-Agregar y Extraer Productos
