@@ -316,13 +316,13 @@ namespace ProyectoFinal
                 texto += i + ". " + almacen[i] + "\n";
             }
             Console.Write(texto);
-            int opcionAlmacen = Operaciones.GetOpcion("Seleccione el almacén: ", texto, alm_contador);
+            int opcionAlmacen = Operaciones.GetOpcion("Seleccione el almacén: ", texto, alm_contador-1);
             string TextoProducto = "";
             if (pdto_contador[opcionAlmacen]== 0)
             {
                 Operaciones.GetKey("Sin productos"); return 2;
             }
-            for(int i = 1; i < alm_contador; i++)
+            for(int i = 0; i < pdto_contador[opcionAlmacen]; i++)
             {
                 TextoProducto += (i + 1) + ". " + producto[opcionAlmacen, i] + "\n";
             }
@@ -340,7 +340,7 @@ namespace ProyectoFinal
             int cantidadAExtraer = Operaciones.GetEntero("Ingrese la cantidad a extraer: ", texto + TextoProducto);
             if (cantidad[opcionAlmacen, opcionproducto] >= cantidadAExtraer)
             {
-                cantidad[opcionproducto,opcionAlmacen] -= cantidadAExtraer;
+                cantidad[opcionAlmacen,opcionproducto] -= cantidadAExtraer;
                 cantidad[0, tiendapos] += cantidadAExtraer;
                 Console.WriteLine("Producto extraído del almacén exitosamente.");
             }    
@@ -363,6 +363,7 @@ namespace ProyectoFinal
             {
                 for (int j = 0; j < pdto_contador[i]; j++)
                 {
+
                     texto += "Producto " + contador + ": " + producto[i, j] + " - ";
                     texto += "Almacén: " + almacen[i] + " - ";
                     texto += "Cantidad: " + cantidad[i, j] + "\n";
